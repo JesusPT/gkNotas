@@ -28,7 +28,15 @@ app.controller('mainController',['$scope','$mdDialog',function($scope,$mdDialog)
       $scope.tituloN = ""
       $scope.contN = ""
     }else{
-      nueva.contenidoNota.$valid;
+      $mdDialog.show(
+      $mdDialog.alert()
+        .parent(angular.element(document.querySelector('body')))
+        .clickOutsideToClose(true)
+        .title('Contenido vacio')
+        .textContent('No se puede agregar una nota sin contenido')
+        .ariaLabel('')
+        .ok('OK')
+    );
     }
   //  console.log($scope.notas[$scope.notas.length-1]);
   };
